@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
-
 import { Context } from "../context/BlogContext";
 
 const StarredMemosScreen = ({ navigation, route }) => {
@@ -12,6 +11,7 @@ const StarredMemosScreen = ({ navigation, route }) => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.header}>Final Exam Completed:</Text>
             <FlatList
                 data={starredMemosData}
                 keyExtractor={(memo) => memo.title}
@@ -36,18 +36,24 @@ const StarredMemosScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#F2E3DB",
+        backgroundColor: "#D6CC99",
+        padding: 15
+    },
+    header: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 10,
     },
     row: {
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "#F2E3DB",
-        margin: 15,
+        backgroundColor: "#FDE5D4",
+        margin: 10,
         paddingVertical: 10,
         paddingHorizontal: 15,
         borderRadius: 10,
         borderWidth: 2,
-        borderColor: "#E86A33",
+        borderColor: "#000",
     },
     title: {
         fontSize: 18,

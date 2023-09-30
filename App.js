@@ -16,8 +16,8 @@ export default function App() {
             <NavigationContainer>
                 <Stack.Navigator
                     screenOptions={{
-                        headerTitle: "To Do List ✅",
-                        headerStyle: { backgroundColor: "#263A29" },
+                        headerTitle: "Final Exam Schedule 📝",
+                        headerStyle: { backgroundColor: "#001524" },
                         headerTintColor: "#fff",
                     }}
                 >

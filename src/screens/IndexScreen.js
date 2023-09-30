@@ -23,11 +23,11 @@ const IndexScreen = ({ navigation }) => {
         const dateA = formatDate(a.date, a.time);
         const dateB = formatDate(b.date, b.time);
         return dateA - dateB;
-      });
+    });
     const confirmDelete = (id) => {
         return Alert.alert(
             "Delete?",
-            "Confirm",
+            "Are you sure you want to delete?",
             [
                 {
                     text: 'Cancel',
@@ -51,20 +51,18 @@ const IndexScreen = ({ navigation }) => {
         }
     }
     const deleteAllMemos = () => {
-        // Show confirmation dialog
         Alert.alert(
-            "Delete All Memos",
-            "Are you sure you want to delete all memos?",
+            "Delete All Final Exam Schedules?",
+            "Are you sure you want to delete all final exam schedules?",
             [
                 {
                     text: 'Cancel',
-                    onPress: () => console.log('Cancel to delete all memos'),
+                    onPress: () => console.log('Cancel to delete all final exam schedules'),
                     style: 'cancel'
                 },
                 {
                     text: 'Delete',
                     onPress: () => {
-                        // Delete all memos
                         state.forEach((memo) => {
                             delMemo(memo.id);
                         });
@@ -77,20 +75,20 @@ const IndexScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity // Change to TouchableOpacity for better styling
-                style={[styles.button, { backgroundColor: '#E86A33' }]} // Set button style and color
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: '#445D48' }]}
                 onPress={() => {
                     navigation.navigate("StarredMemos", { starredMemos });
                 }}
             >
-                <Text style={styles.buttonText}>Show Favorite</Text>
+                <Text style={styles.buttonText}>Show Final Exam Completed</Text>
             </TouchableOpacity>
 
-           <TouchableOpacity // Change to TouchableOpacity for better styling
-                style={[styles.button, { backgroundColor: '#E86A33' }]} // Set button style and color
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: '#445D48' }]}
                 onPress={deleteAllMemos}
             >
-                <Text style={styles.buttonText}>Delete All Memos</Text>
+                <Text style={styles.buttonText}>Delete All Final Exam Schedules</Text>
             </TouchableOpacity>
             <FlatList
                 data={sortedMemos}
@@ -102,7 +100,6 @@ const IndexScreen = ({ navigation }) => {
                         >
                             <View style={styles.row}>
                                 <TouchableOpacity onPress={() => toggleStar(item.id)}>
-                                    {/* Use conditional rendering to toggle between star icons */}
                                     {starredMemos.includes(item.id) ?
                                         <AntDesign name="star" size={24} color="black" /> :
                                         <AntDesign name="staro" size={24} color="black" />
@@ -126,14 +123,14 @@ const IndexScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#F2E3DB",
+        backgroundColor: "#D6CC99",
         paddingHorizontal: 15,
         paddingTop: 10,
     },
     row: {
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "#F2E3DB",
+        backgroundColor: "#FDE5D4",
         margin: 15,
         paddingVertical: 10,
         paddingHorizontal: 15,
@@ -141,7 +138,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         borderWidth: 2,
-        borderColor: "#E86A33",
+        borderColor: "#000",
+        
     },
     title: {
         fontSize: 18,

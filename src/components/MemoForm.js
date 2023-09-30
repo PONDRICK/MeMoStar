@@ -6,7 +6,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
     const [content, setContent] = useState(initValues.content);
     const [date, setDate] = useState(initValues.date);
     const [time, setTime] = useState(initValues.time);
-    const [room, setRoom] = useState(initValues.room)
+    const [room, setRoom] = useState(initValues.room);
 
     const isDateValid = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/.test(date);
     const isTimeValid = /^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(time);
@@ -16,7 +16,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
 
     if (isDateValid) {
         const [day, month, year] = date.split('/').map(Number);
-        dateObj = new Date(year, month - 1, day); // Month is 0-indexed
+        dateObj = new Date(year, month - 1, day);
     }
 
     if (isTimeValid) {
@@ -40,54 +40,53 @@ const MemoForm = ({ onSubmit, initValues }) => {
                 value={content}
                 onChangeText={(text) => setContent(text)}
             />
-            <Text style={styles.label}>Date (dd/mm/yyyy):</Text>
+            <Text style={styles.label}>Date (DD/MM/YYYY):</Text>
             <TextInput
                 style={styles.input}
                 value={date}
                 onChangeText={(text) => setDate(text)}
             />
             {isDateValid || date === "" ? null : (
-                <Text style={styles.errorText}>Invalid date format (dd/mm/yyyy)</Text>
+                <Text style={styles.errorText}>Invalid date format (DD/MM/YYYY)</Text>
             )}
-            <Text style={styles.label}>Time (hh:mm):</Text>
+            <Text style={styles.label}>Time (HH:MM):</Text>
             <TextInput
                 style={styles.input}
                 value={time}
                 onChangeText={(text) => setTime(text)}
             />
             {isTimeValid || time === "" ? null : (
-                <Text style={styles.errorText}>Invalid time format (hh:mm)</Text>
+                <Text style={styles.errorText}>Invalid time format (HH:MM)</Text>
             )}
-            <Text style={styles.label}>Test Room</Text>
+            <Text style={styles.label}>Exam room:</Text>
             <TextInput
                 style={styles.input}
                 value={room}
                 onChangeText={(text) => setRoom(text)}
             />
             <TouchableOpacity
-                style={[styles.button, { backgroundColor: '#E86A33' }]}
+                style={[styles.button, { backgroundColor: '#445D48' }]}
                 onPress={() => {
                     if (isDateValid && isTimeValid) {
-                        onSubmit(title, content, date, time,room);
+                        onSubmit(title, content, date, time, room);
                     }
                 }}
             >
-                <Text style={styles.buttonText}>Submit Memo</Text>
+                <Text style={styles.buttonText}>Submit Schedule</Text>
             </TouchableOpacity>
         </View>
     );
 };
 
 MemoForm.defaultProps = {
-    initValues: { title: "", content: "", date: "", time: "" ,room:""},
+    initValues: { title: "", content: "", date: "", time: "", room: "" },
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 15,
-        backgroundColor: '#F2E3DB',
-        borderRadius: 10
+        backgroundColor: '#D6CC99',
+        padding: 10,
     },
     label: {
         fontSize: 20,
@@ -97,23 +96,23 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 18,
-        borderWidth: 1,
-        borderColor: "#E86A33",
-        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: "#000",
+        borderRadius: 10,
         padding: 5,
         paddingLeft: 10,
         margin: 10,
         marginBottom: 15,
-        backgroundColor: "#fff"
+        backgroundColor: "#FDE5D4"
     },
     multiline: {
-        minHeight: 100, // Set a minimum height for multiline input
+        minHeight: 100,
     },
     button: {
         borderRadius: 15,
         padding: 10,
         alignItems: 'center',
-        backgroundColor: '#E86A33',
+        backgroundColor: '#445D48',
     },
     buttonText: {
         color: '#fff',

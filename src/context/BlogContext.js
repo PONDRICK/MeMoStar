@@ -26,18 +26,18 @@ const memoReducer = (state, action) => {
 };
 
 const addMemo = (dispatch) => {
-    return (title, content, date,time,room) => { // Add date parameter
-        dispatch({ type: "add-memo", payload: { title, content, date ,time,room} }); // Pass date to payload
+    return (title, content, date,time,room) => {
+        dispatch({ type: "add-memo", payload: { title, content, date ,time,room} });
     };
 };
 const delMemo = dispatch => {
     return (id) => dispatch({ type: 'del-memo', payload: id });
 };
 const editMemo = dispatch => {
-    return (id, title, content) => dispatch({ type: 'edit-memo', payload: { id, title, content } });
+    return (id, title, content,date,time,room) => dispatch({ type: 'edit-memo', payload: { id, title, content, date, time, room } });
 };
 export const { Context, Provider } = createDataContext(
     memoReducer,
     { addMemo, delMemo, editMemo },
-    [{ title: 'Title000', content: 'Content000' }]
+    [{ id: '00001', title: 'Mobile Application', content: 'Final exam', date: '28/10/2023', time: '13:00', room: 'SC-330' }]
 );

@@ -10,7 +10,7 @@ const ShowScreen = ({ route }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Memo Details</Text>
+            <Text style={styles.header}>Final Exam Details:</Text>
             <View style={styles.memoContainer}>
                 <Text style={styles.title}>{memo.title}</Text>
                 <Text style={styles.content}>{memo.content}</Text>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 15,
-        backgroundColor: "#F2E3DB",
+        backgroundColor: "#D6CC99",
     },
     header: {
         fontSize: 24,
@@ -34,18 +34,11 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     memoContainer: {
-        backgroundColor: "#fff",
+        backgroundColor: "#FDE5D4",
         borderRadius: 10,
+        borderWidth: 2,
         padding: 15,
         marginBottom: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
     },
     memoHeader: {
         alignItems: "flex-end",
@@ -54,6 +47,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: "bold",
+        fontStyle: "italic",
         marginBottom: 10,
     },
     content: {
