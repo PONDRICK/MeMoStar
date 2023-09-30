@@ -7,10 +7,24 @@ const MemoForm = ({ onSubmit, initValues }) => {
     const [date, setDate] = useState(initValues.date);
     const [time, setTime] = useState(initValues.time);
     const [room, setRoom] = useState(initValues.room);
+    const [dayValidError, setDayValidError] = useState(false);
+    const [maxDaysInMonth, setMaxDaysInMonth] = useState(null);
 
     const isDateValid = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/.test(date);
     const isTimeValid = /^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(time);
 
+    const isDayValid = () => {
+        if (isDateValid) {
+            const [day, month, year] = date.split('/').map(Number);
+            const maxDays = new Date(year, month, 0).getDate();
+            setMaxDaysInMonth(maxDays); // Set max days in month
+            const isValid = day <= maxDays;
+            setDayValidError(!isValid);
+            return isValid;
+        }
+        setDayValidError(false);
+        return false;
+    };
     let dateObj = null;
     let timeObj = null;
 
@@ -49,6 +63,11 @@ const MemoForm = ({ onSubmit, initValues }) => {
             {isDateValid || date === "" ? null : (
                 <Text style={styles.errorText}>Invalid date format (DD/MM/YYYY)</Text>
             )}
+            {dayValidError && (
+                <Text style={styles.errorText}>
+                    Invalid day for the selected month and year. Maximum days in month: {maxDaysInMonth}
+                </Text>
+            )}
             <Text style={styles.label}>Time (HH:MM):</Text>
             <TextInput
                 style={styles.input}
@@ -67,7 +86,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
             <TouchableOpacity
                 style={[styles.button, { backgroundColor: '#445D48' }]}
                 onPress={() => {
-                    if (isDateValid && isTimeValid) {
+                    if (isDateValid && isTimeValid && isDayValid()) {
                         onSubmit(title, content, date, time, room);
                     }
                 }}
