@@ -14,6 +14,9 @@ const memoReducer = (state, action) => {
                     id: Math.floor(Math.random() * 99999),
                     title: action.payload.title,
                     content: action.payload.content,
+                    date: action.payload.date,
+                    time: action.payload.time,
+                    room: action.payload.room,
                 },
             ];
         
@@ -23,8 +26,8 @@ const memoReducer = (state, action) => {
 };
 
 const addMemo = (dispatch) => {
-    return (title, content) => {
-        dispatch({ type: "add-memo", payload: { title, content } });
+    return (title, content, date,time,room) => { // Add date parameter
+        dispatch({ type: "add-memo", payload: { title, content, date ,time,room} }); // Pass date to payload
     };
 };
 const delMemo = dispatch => {

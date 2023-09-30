@@ -14,6 +14,9 @@ const ShowScreen = ({ route }) => {
             <View style={styles.memoContainer}>
                 <Text style={styles.title}>{memo.title}</Text>
                 <Text style={styles.content}>{memo.content}</Text>
+                <Text style={styles.content}>{memo.date}</Text>
+                <Text style={styles.content}>{memo.time}</Text>
+                <Text style={styles.content}>{memo.room}</Text>
             </View>
         </View>
     );

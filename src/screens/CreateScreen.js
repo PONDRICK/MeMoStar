@@ -7,14 +7,13 @@ const CreateScreen = ({ navigation }) => {
     const { addMemo } = useContext(Context);
     return (
         <MemoForm
-            onSubmit={(title, content) => {
-                addMemo(title, content);
+            onSubmit={(title, content, date,time,room) => {
+                addMemo(title, content, date,time,room); // Passed date to addMemo
                 navigation.navigate("Index");
             }}
         />
     );
 };
-
 const styles = StyleSheet.create({});
 
 export default CreateScreen;

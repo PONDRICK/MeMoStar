@@ -4,7 +4,26 @@ import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "rea
 const MemoForm = ({ onSubmit, initValues }) => {
     const [title, setTitle] = useState(initValues.title);
     const [content, setContent] = useState(initValues.content);
+    const [date, setDate] = useState(initValues.date);
+    const [time, setTime] = useState(initValues.time);
+    const [room, setRoom] = useState(initValues.room)
 
+    const isDateValid = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/.test(date);
+    const isTimeValid = /^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(time);
+
+    let dateObj = null;
+    let timeObj = null;
+
+    if (isDateValid) {
+        const [day, month, year] = date.split('/').map(Number);
+        dateObj = new Date(year, month - 1, day); // Month is 0-indexed
+    }
+
+    if (isTimeValid) {
+        const [hour, minute] = time.split(':').map(Number);
+        timeObj = new Date();
+        timeObj.setHours(hour, minute, 0, 0);
+    }
     return (
         <View style={styles.container}>
             <Text style={styles.label}>Title:</Text>
@@ -15,16 +34,42 @@ const MemoForm = ({ onSubmit, initValues }) => {
             />
             <Text style={styles.label}>Content:</Text>
             <TextInput
-                style={[styles.input, styles.multiline]} // Added styles for multiline input
+                style={[styles.input, styles.multiline]}
                 multiline
                 numberOfLines={5}
                 value={content}
                 onChangeText={(text) => setContent(text)}
             />
-            <TouchableOpacity // Changed to TouchableOpacity for better styling
-                style={[styles.button, { backgroundColor: '#E86A33' }]} // Set button style and color
+            <Text style={styles.label}>Date (dd/mm/yyyy):</Text>
+            <TextInput
+                style={styles.input}
+                value={date}
+                onChangeText={(text) => setDate(text)}
+            />
+            {isDateValid || date === "" ? null : (
+                <Text style={styles.errorText}>Invalid date format (dd/mm/yyyy)</Text>
+            )}
+            <Text style={styles.label}>Time (hh:mm):</Text>
+            <TextInput
+                style={styles.input}
+                value={time}
+                onChangeText={(text) => setTime(text)}
+            />
+            {isTimeValid || time === "" ? null : (
+                <Text style={styles.errorText}>Invalid time format (hh:mm)</Text>
+            )}
+            <Text style={styles.label}>Test Room</Text>
+            <TextInput
+                style={styles.input}
+                value={room}
+                onChangeText={(text) => setRoom(text)}
+            />
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: '#E86A33' }]}
                 onPress={() => {
-                    onSubmit(title, content);
+                    if (isDateValid && isTimeValid) {
+                        onSubmit(title, content, date, time,room);
+                    }
                 }}
             >
                 <Text style={styles.buttonText}>Submit Memo</Text>
@@ -34,14 +79,14 @@ const MemoForm = ({ onSubmit, initValues }) => {
 };
 
 MemoForm.defaultProps = {
-    initValues: { title: "", content: "" },
+    initValues: { title: "", content: "", date: "", time: "" ,room:""},
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         margin: 15,
-        backgroundColor:'#F2E3DB',
+        backgroundColor: '#F2E3DB',
         borderRadius: 10
     },
     label: {
@@ -74,6 +119,12 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    errorText: {
+        color: "red",
+        fontSize: 16,
+        alignSelf: "center",
+        marginTop: 5,
     },
 });
 
