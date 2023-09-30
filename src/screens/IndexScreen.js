@@ -14,6 +14,16 @@ import { AntDesign } from '@expo/vector-icons';
 const IndexScreen = ({ navigation }) => {
     const { state, addMemo, delMemo } = useContext(Context);
     const [starredMemos, setStarredMemos] = useState([]);
+    const formatDate = (date, time) => {
+        const [day, month, year] = date.split('/');
+        const [hours, minutes] = time.split(':');
+        return new Date(year, month - 1, day, hours, minutes);
+    };
+    const sortedMemos = [...state].sort((a, b) => {
+        const dateA = formatDate(a.date, a.time);
+        const dateB = formatDate(b.date, b.time);
+        return dateA - dateB;
+      });
     const confirmDelete = (id) => {
         return Alert.alert(
             "Delete?",
@@ -83,7 +93,7 @@ const IndexScreen = ({ navigation }) => {
                 <Text style={styles.buttonText}>Delete All Memos</Text>
             </TouchableOpacity>
             <FlatList
-                data={state}
+                data={sortedMemos}
                 keyExtractor={(memo) => memo.title}
                 renderItem={({ item }) => {
                     return (
