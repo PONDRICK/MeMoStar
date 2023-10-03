@@ -8,6 +8,9 @@ import { Feather, Entypo } from "@expo/vector-icons";
 import CreateScreen from "./src/screens/CreateScreen";
 import EditScreen from "./src/screens/EditScreen";
 import StarredMemosScreen from "./src/screens/StarredMemosScreen";
+import MemberList from './src/screens/MemberList';
+import { AntDesign } from '@expo/vector-icons';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -30,8 +33,15 @@ export default function App() {
                                     <Feather name="plus" size={30} color="white" />
                                 </TouchableOpacity>
                             ),
+                            headerLeft:() => (
+                                <TouchableOpacity onPress={() => navigation.navigate("MemberList")}>
+                                <AntDesign name="team" size={24} color="white" />
+                            </TouchableOpacity>
+                            )
                         })}
                     />
+                    
+                    <Stack.Screen name="MemberList" component={MemberList}/>
                     <Stack.Screen name="Create" component={CreateScreen} />
                     <Stack.Screen name="Edit" component={EditScreen} />
                     <Stack.Screen name="StarredMemos" component={StarredMemosScreen} />

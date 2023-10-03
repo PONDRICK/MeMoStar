@@ -1,0 +1,30 @@
+[
+    {
+      "id": 0,
+      "name": "Mr. Sorrawit Nuernuam 6421604927",
+      "image": "../img/IMG_7038.jpg",
+      "work": "40% developer",
+      "description": ["add", "delete", "edit from old work", "add date time and sort"]
+    },
+    {
+      "id": 1,
+      "name": "Mr. Pasin Sangjun     6421600191",
+      "image": "../img/image.png",
+      "work": "20% designer",
+      "description": "designer (Change all design and fix edit for new project)"
+    },
+    {
+      "id": 2,
+      "name": "Mr. Wichayaut Burong  6421602495",
+      "image": "../img/fox.jpg",
+      "work": "20% Human",
+      "description": "Human Resource (Profile page)"
+    },
+    {
+      "id": 3,
+      "name": "Mr. Napat Charoinsilp 6421602444",
+      "image": "../img/image1.png",
+      "work":  "20% Human",
+      "description": "Human Resource (Profile description)"
+    }
+  ]
