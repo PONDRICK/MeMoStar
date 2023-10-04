@@ -11,7 +11,6 @@ const memoReducer = (state, action) => {
             return [
                 ...state,
                 {
-                    id: Math.floor(Math.random() * 99999),
                     title: action.payload.title,
                     content: action.payload.content,
                     date: action.payload.date,
@@ -39,5 +38,5 @@ const editMemo = dispatch => {
 export const { Context, Provider } = createDataContext(
     memoReducer,
     { addMemo, delMemo, editMemo },
-    [{ id: '00001', title: 'Mobile Application', content: 'Final exam', date: '28/10/2023', time: '13:00', room: 'SC-330' }]
+    [{title: 'Mobile Application', content: 'Final exam', date: '28/10/2023', time: '13:00', room: 'SC-330' }]
 );

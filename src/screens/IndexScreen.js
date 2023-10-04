@@ -105,9 +105,14 @@ const IndexScreen = ({ navigation }) => {
                                         <AntDesign name="staro" size={24} color="black" />
                                     }
                                 </TouchableOpacity>
-                                <Text style={[styles.title]} color='#fff'>
-                                    {item.title}-{item.id}
-                                </Text>
+                                <View>
+                                    <Text style={[styles.title]} color='#fff'>
+                                        {item.title}
+                                    </Text>
+                                    <Text>Date :{item.date}</Text>
+                                    <Text>Time : {item.time}</Text>
+                                    <Text>Test Room: {item.room}</Text>
+                                </View>
                                 <TouchableOpacity onPress={() => confirmDelete(item.id)}>
                                     <Feather name="trash-2" size={24} color="black" />
                                 </TouchableOpacity>
@@ -128,8 +133,8 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     row: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection:"row",
+        justifyContent: "space-around",
         backgroundColor: "#FDE5D4",
         margin: 15,
         paddingVertical: 10,
@@ -139,7 +144,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 2,
         borderColor: "#000",
-        
     },
     title: {
         fontSize: 18,

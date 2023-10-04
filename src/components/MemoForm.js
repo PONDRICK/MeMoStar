@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity,ScrollView } from "react-native";
 
 const MemoForm = ({ onSubmit, initValues }) => {
     const [title, setTitle] = useState(initValues.title);
@@ -39,6 +39,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         timeObj.setHours(hour, minute, 0, 0);
     }
     return (
+        <ScrollView>
         <View style={styles.container}>
             <Text style={styles.label}>Title:</Text>
             <TextInput
@@ -94,6 +95,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
                 <Text style={styles.buttonText}>Submit Schedule</Text>
             </TouchableOpacity>
         </View>
+        </ScrollView>
     );
 };
 

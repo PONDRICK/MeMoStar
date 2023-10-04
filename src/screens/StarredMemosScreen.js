@@ -22,7 +22,7 @@ const StarredMemosScreen = ({ navigation, route }) => {
                         >
                             <View style={styles.row}>
                                 <Text style={[styles.title]} color="#fff">
-                                    {item.title}-{item.id}
+                                    {item.title}
                                 </Text>
                             </View>
                         </TouchableOpacity>

@@ -27,7 +27,7 @@ const MemberList = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {showmember1 && (
-                <Text style={styles.writer}>work : 40%  developer (add, delete, edit from old work, add date time and sort)</Text>
+                <Text style={styles.writer}>work : 25%  developer (add, delete, edit from old work, add date time and sort)</Text>
             )}
             <Image
                 source={require("../img/image.png")}
@@ -46,7 +46,7 @@ const MemberList = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {showmember2 && (
-                <Text style={styles.writer}>work : 20% designer designer (Change all design and fix edit for new project)</Text>
+                <Text style={styles.writer}>work : 25% designer designer (Change all design and fix edit for new project)</Text>
             )}
             <Image
                 source={require("../img/fox.jpg")}
@@ -65,7 +65,7 @@ const MemberList = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {showmember3 && (
-                <Text style={styles.writer}>work : 20% Human Resource (Profile page)</Text>
+                <Text style={styles.writer}>work : 25% Human Resource (Profile page)</Text>
             )}
             <Image
                 source={require("../img/image1.png")}
@@ -84,7 +84,7 @@ const MemberList = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {showmember4 && (
-                <Text style={styles.writer}>work : 20% Human Resource (Profile description)</Text>
+                <Text style={styles.writer}>work : 25% Human Resource (Profile description)</Text>
             )}
         </ScrollView>
     );
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     writer: {
         fontSize: 16,
         marginTop: 10,
-        color: "while",
         backgroundColor: "#dce25b",
         padding: 10,
         borderRadius: 50,
