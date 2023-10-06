@@ -106,43 +106,38 @@ MemoForm.defaultProps = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#D6CC99',
+        backgroundColor: '#F5F5F5',
         padding: 10,
     },
     label: {
-        fontSize: 20,
+        fontSize: 18,
         marginBottom: 5,
-        marginLeft: 5,
         fontWeight: 'bold',
+        color: '#444',
     },
     input: {
-        fontSize: 18,
-        borderWidth: 2,
-        borderColor: "#000",
-        borderRadius: 10,
-        padding: 5,
-        paddingLeft: 10,
-        margin: 10,
-        marginBottom: 15,
-        backgroundColor: "#FDE5D4"
-    },
-    multiline: {
-        minHeight: 100,
+        fontSize: 16,
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 5,
+        padding: 10,
+        marginBottom: 10,
+        backgroundColor: "#fff"
     },
     button: {
-        borderRadius: 15,
+        borderRadius: 5,
         padding: 10,
         alignItems: 'center',
         backgroundColor: '#445D48',
     },
     buttonText: {
         color: '#fff',
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
     },
     errorText: {
         color: "red",
-        fontSize: 16,
+        fontSize: 14,
         alignSelf: "center",
         marginTop: 5,
     },

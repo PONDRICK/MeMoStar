@@ -26,17 +26,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 15,
-        backgroundColor: "#D6CC99",
+        backgroundColor: "#F5F5F5",
     },
     header: {
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 10,
+        color: '#444',
     },
     memoContainer: {
-        backgroundColor: "#FDE5D4",
-        borderRadius: 10,
-        borderWidth: 2,
+        backgroundColor: "#fff",
+        borderRadius: 5,
+        borderWidth: 1,
         padding: 15,
         marginBottom: 10,
     },
@@ -45,13 +46,15 @@ const styles = StyleSheet.create({
         marginBottom: -20,
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold",
         fontStyle: "italic",
         marginBottom: 10,
+        color: '#444',
     },
     content: {
-        fontSize: 18,
+        fontSize: 16,
+        color: '#555',
     },
 });
 

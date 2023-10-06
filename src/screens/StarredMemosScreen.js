@@ -36,27 +36,35 @@ const StarredMemosScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#D6CC99",
+        backgroundColor: "#F5F5F5",
         padding: 15
     },
     header: {
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 10,
+        color: '#444',
     },
     row: {
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "#FDE5D4",
+        backgroundColor: "#fff",
         margin: 10,
         paddingVertical: 10,
         paddingHorizontal: 15,
-        borderRadius: 10,
-        borderWidth: 2,
-        borderColor: "#000",
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     title: {
         fontSize: 18,
+        color: '#444',
     },
 });
 

@@ -11,6 +11,7 @@ const memoReducer = (state, action) => {
             return [
                 ...state,
                 {
+                    id: Math.floor(Math.random() * 99999),
                     title: action.payload.title,
                     content: action.payload.content,
                     date: action.payload.date,
